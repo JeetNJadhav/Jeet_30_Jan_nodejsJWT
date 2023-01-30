@@ -1,4 +1,5 @@
 const devModel = require("../models/DevelopersSchema");
+const { generateToken } = require("../tokenManagement/TokenManagement");
 
 const fetchAllDevelopers = async () => {
   let data = await devModel
@@ -10,7 +11,10 @@ const fetchAllDevelopers = async () => {
       console.log(err);
     });
 
-  return data;
+  let token = generateToken(data);
+  console.log("TOKEN-->", token);
+  // returning data along with generated token
+  return { token, data };
 };
 
 const addDev = async (dev) => {
