@@ -19,7 +19,8 @@ const checkdev = (req, res, next) => {
 };
 
 const generateToken = (payload) => {
-  return jwt.sign({ payload }, "secretCODE", { expiresIn: "7d" });
+  console.log("payload", payload);
+  return jwt.sign({ payload }, "secretCODE", { expiresIn: "10s" });
 };
 
 module.exports = { generateToken, checkdev };

@@ -11,10 +11,8 @@ const fetchAllDevelopers = async () => {
       console.log(err);
     });
 
-  let token = generateToken(data);
-  console.log("TOKEN-->", token);
   // returning data along with generated token
-  return { token, data };
+  return { data };
 };
 
 const addDev = async (dev) => {
